@@ -1,20 +1,21 @@
 "use client";
 
 import { use, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Heart, ShoppingCart, Copy, Check } from "lucide-react";
+import { ArrowLeft, Heart, ShoppingCart, Share2 } from "lucide-react";
 import { products } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import { QuantitySelector } from "@/components/product/QuantitySelector";
+import { ImageGallery } from "@/components/product/ImageGallery";
+import { ShareModal } from "@/components/product/ShareModal";
 
 export default function ProductDetailsPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
   const product = products.find((p) => p.id === resolvedParams.id);
   const [quantity, setQuantity] = useState(1);
-  const [copied, setCopied] = useState(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const { addToCart } = useCart();
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
@@ -36,15 +37,7 @@ export default function ProductDetailsPage({ params }: { params: Promise<{ id: s
     addToCart(product, quantity);
   };
 
-  const handleCopyLink = async () => {
-    try {
-      await navigator.clipboard.writeText(window.location.href);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy link", err);
-    }
-  };
+
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full flex-1">
@@ -53,17 +46,11 @@ export default function ProductDetailsPage({ params }: { params: Promise<{ id: s
       </Link>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
-        {/* Product Image */}
-        <div className="relative aspect-square rounded-3xl overflow-hidden bg-muted border border-border shadow-sm">
-          <Image
-            src={product.image}
-            alt={product.name}
-            fill
-            className="object-cover"
-            priority
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
-        </div>
+        {/* Product Image Gallery */}
+        <ImageGallery 
+          images={product.gallery && product.gallery.length > 0 ? product.gallery : [product.image]} 
+          productName={product.name} 
+        />
 
         {/* Product Info */}
         <div className="flex flex-col">
@@ -74,7 +61,7 @@ export default function ProductDetailsPage({ params }: { params: Promise<{ id: s
             {product.name}
           </h1>
           <div className="text-2xl sm:text-3xl font-bold text-foreground mb-4 sm:mb-6">
-            ${product.price.toFixed(2)}
+            ₹{product.price.toFixed(2)}
           </div>
           <p className="text-base sm:text-lg text-muted-foreground mb-8 sm:mb-10 leading-relaxed">
             {product.description}
@@ -113,20 +100,20 @@ export default function ProductDetailsPage({ params }: { params: Promise<{ id: s
           <div className="pt-8 border-t border-border flex items-center justify-between">
             <span className="text-sm text-muted-foreground font-medium">Share this product</span>
             <button
-              onClick={handleCopyLink}
+              onClick={() => setIsShareModalOpen(true)}
               className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors bg-primary/10 px-4 py-2 rounded-full relative"
             >
-              {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-              {copied ? "Copied!" : "Copy Link"}
-              {copied && (
-                <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-foreground text-background text-xs py-1 px-2 rounded font-bold whitespace-nowrap animate-in fade-in slide-in-from-bottom-2">
-                  Link copied to clipboard!
-                </span>
-              )}
+              <Share2 className="w-4 h-4" />
+              Share
             </button>
           </div>
         </div>
       </div>
+      <ShareModal 
+        product={product} 
+        isOpen={isShareModalOpen} 
+        onClose={() => setIsShareModalOpen(false)} 
+      />
     </div>
   );
 }

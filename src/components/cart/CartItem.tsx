@@ -43,7 +43,7 @@ export function CartItem({ item }: CartItemProps) {
             onDecrease={() => updateQuantity(item.id, item.quantity - 1)}
           />
           <div className="font-semibold text-foreground">
-            ${(item.price * item.quantity).toFixed(2)}
+            ₹{(item.price * item.quantity).toFixed(2)}
           </div>
         </div>
       </div>

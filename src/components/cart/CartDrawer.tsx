@@ -70,7 +70,7 @@ export function CartDrawer() {
           <div className="p-4 border-t border-border bg-muted/30">
             <div className="flex justify-between text-lg font-bold mb-4">
               <span>Subtotal</span>
-              <span>${cartTotal.toFixed(2)}</span>
+              <span>₹{cartTotal.toFixed(2)}</span>
             </div>
             <Link
               href="/cart"

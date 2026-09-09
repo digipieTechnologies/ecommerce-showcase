@@ -5,6 +5,7 @@ export interface Product {
   price: number;
   category: string;
   image: string;
+  gallery?: string[];
 }
 
 export const CATEGORIES = ["All", "T-Shirts", "Mugs", "Accessories", "Gifts"];
@@ -17,6 +18,11 @@ export const products: Product[] = [
     price: 29.99,
     category: "T-Shirts",
     image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=800",
+    gallery: [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=801"
+    ]
   },
   {
     id: "p2",
@@ -25,6 +31,11 @@ export const products: Product[] = [
     price: 18.50,
     category: "Mugs",
     image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&q=80&w=800",
+    gallery: [
+      "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&q=80&w=800"
+    ],
   },
   {
     id: "p3",
@@ -32,7 +43,12 @@ export const products: Product[] = [
     description: "Durable canvas tote bag featuring an exclusive 'Jay art work' design. Spacious and eco-friendly.",
     price: 22.00,
     category: "Accessories",
-    image: "https://images.unsplash.com/photo-1597559132517-5755106e5792?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800",
+    gallery: [
+      "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=801",
+      "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&q=80&w=800"
+    ]
   },
   {
     id: "p4",
@@ -41,6 +57,11 @@ export const products: Product[] = [
     price: 45.00,
     category: "Gifts",
     image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&q=80&w=800",
+    gallery: [
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&q=80&w=801"
+    ]
   },
   {
     id: "p5",
@@ -48,7 +69,12 @@ export const products: Product[] = [
     description: "A small geometric enamel pin to add a touch of art to your jacket or backpack.",
     price: 12.00,
     category: "Accessories",
-    image: "https://images.unsplash.com/photo-1611078716755-6b541334c9c1?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1560440021-33f9b867899d?auto=format&fit=crop&q=80&w=800",
+    gallery: [
+      "https://images.unsplash.com/photo-1560440021-33f9b867899d?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1560440021-33f9b867899d?auto=format&fit=crop&q=80&w=801",
+      "https://images.unsplash.com/photo-1560440021-33f9b867899d?auto=format&fit=crop&q=80&w=802"
+    ]
   },
   {
     id: "p6",
@@ -57,6 +83,11 @@ export const products: Product[] = [
     price: 34.00,
     category: "T-Shirts",
     image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=800",
+    gallery: [
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1562159278-1253a58da141?auto=format&fit=crop&q=80&w=800"
+    ]
   },
   {
     id: "p7",
@@ -64,7 +95,12 @@ export const products: Product[] = [
     description: "Sleek matte black mug for the modern minimalist.",
     price: 16.00,
     category: "Mugs",
-    image: "https://images.unsplash.com/photo-1481833758786-928e4695b169?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=800",
+    gallery: [
+      "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&q=80&w=800"
+    ]
   },
   {
     id: "p8",
@@ -73,5 +109,10 @@ export const products: Product[] = [
     price: 24.00,
     category: "Gifts",
     image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&q=80&w=800",
+    gallery: [
+      "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&q=80&w=801",
+      "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&q=80&w=802"
+    ]
   }
 ];

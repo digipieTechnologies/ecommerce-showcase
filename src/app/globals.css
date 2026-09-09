@@ -31,3 +31,11 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
 }
+
+@layer base {
+  button, 
+  [role="button"],
+  a {
+    cursor: pointer;
+  }
+}

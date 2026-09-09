@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { Product } from "@/data/products";
+import { Product, products } from "@/data/products";
 
 export interface CartItem extends Product {
   quantity: number;
@@ -31,7 +31,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
       try {
-        setCart(JSON.parse(savedCart));
+        const parsedCart = JSON.parse(savedCart) as CartItem[];
+        // Hydrate cart items from latest products data to fix old image URLs
+        const hydratedCart = parsedCart.map(item => {
+          const latestProduct = products.find((p) => p.id === item.id);
+          return latestProduct ? { ...latestProduct, quantity: item.quantity } : item;
+        });
+        setCart(hydratedCart);
       } catch (e) {
         console.error("Failed to parse cart from local storage", e);
       }
