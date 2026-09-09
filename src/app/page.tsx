@@ -9,27 +9,30 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="bg-primary/5 py-16 sm:py-20 lg:py-32 overflow-hidden relative">
-        <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-primary/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-56 h-56 sm:w-72 sm:h-72 bg-primary/10 rounded-full blur-3xl" />
+      <section className="bg-[#fafafa] py-20 sm:py-32 relative overflow-hidden">
+        {/* Soft elegant gradient background */}
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#fff0f0] via-[#fafafa] to-[#fafafa] opacity-60" />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-            <Sparkles className="w-4 h-4" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-medium tracking-wide uppercase mb-8">
+            <Sparkles className="w-3.5 h-3.5" />
             <span>Discover Creative Gifts</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground tracking-tight mb-6 leading-tight">
-            Curated <span className="text-primary">Jay art work</span> <br className="hidden sm:block" /> for everyone.
+          
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold text-foreground tracking-tight mb-6 leading-[1.1]">
+            Curated <span className="text-primary italic font-serif">Jay art work</span> <br className="hidden sm:block" /> for everyone.
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 px-2 sm:px-0">
+          
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 font-light leading-relaxed">
             Brighten up your day with our modern, minimal, and premium collection of t-shirts, mugs, and creative accessories.
           </p>
-          <div className="flex justify-center gap-4">
+          
+          <div className="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
             <Link
               href="/products"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-primary text-primary-foreground font-bold rounded-full hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-lg text-sm sm:text-base w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-foreground text-background font-medium rounded-full hover:bg-foreground/90 transition-all duration-300 w-full sm:w-auto text-sm tracking-wide"
             >
-              Shop Collection <ArrowRight className="w-5 h-5" />
+              Shop Collection <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

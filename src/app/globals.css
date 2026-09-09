@@ -16,20 +16,21 @@
 
 :root {
   --background: #fafafa;
-  --foreground: #171717;
-  --primary: #ff5e5b; /* A bright, vibrant coral */
+  --foreground: #111111;
+  --primary: #ff7675; /* Soft coral */
   --primary-foreground: #ffffff;
   --muted: #f4f4f5;
   --muted-foreground: #71717a;
   --border: #e4e4e7;
   --card: #ffffff;
-  --card-foreground: #171717;
+  --card-foreground: #111111;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 @layer base {
