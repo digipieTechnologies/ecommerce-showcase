@@ -12,17 +12,18 @@
   --color-card-foreground: var(--card-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-playfair);
 }
 
 :root {
-  --background: #fafafa;
+  --background: #FFFFFF;
   --foreground: #111111;
-  --primary: #ff7675; /* Soft coral */
-  --primary-foreground: #ffffff;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --border: #e4e4e7;
-  --card: #ffffff;
+  --primary: #FF6B6B; /* Premium coral accent */
+  --primary-foreground: #FFFFFF;
+  --muted: #FAF8F7; /* Soft section background */
+  --muted-foreground: #6B6B6B; /* Secondary text */
+  --border: #EAE5E3; /* Warm light gray */
+  --card: #FFFFFF;
   --card-foreground: #111111;
 }
 

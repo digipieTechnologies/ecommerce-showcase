@@ -28,41 +28,41 @@ export function ProductCard({ product }: { product: Product }) {
   };
 
   return (
-    <Link href={`/products/${product.id}`} className="group flex flex-col bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-border">
-      <div className="relative aspect-square overflow-hidden bg-muted">
+    <Link href={`/products/${product.id}`} className="group flex flex-col bg-transparent overflow-hidden transition-all duration-500 hover:-translate-y-1">
+      <div className="relative aspect-[4/5] overflow-hidden bg-muted rounded-xl">
         <Image
           src={product.image}
           alt={product.name}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <button
           onClick={toggleWishlist}
-          className="absolute top-3 right-3 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm text-foreground hover:text-primary hover:bg-white transition-colors"
+          className="absolute top-3 right-3 p-2.5 bg-white rounded-full shadow-sm text-foreground hover:text-primary transition-colors z-10"
           aria-label={isSaved ? "Remove from wishlist" : "Add to wishlist"}
         >
-          <Heart className={`w-5 h-5 ${isSaved ? "fill-primary text-primary" : ""}`} />
+          <Heart className={`w-4 h-4 ${isSaved ? "fill-primary text-primary" : ""}`} />
         </button>
       </div>
       
-      <div className="p-5 flex flex-col flex-1">
-        <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
+      <div className="pt-5 pb-2 flex flex-col flex-1">
+        <div className="text-[11px] font-semibold text-primary uppercase tracking-widest mb-2">
           {product.category}
         </div>
-        <h3 className="text-lg font-bold text-foreground mb-1 line-clamp-1">{product.name}</h3>
-        <p className="text-sm text-muted-foreground line-clamp-2 mb-4 flex-1">
+        <h3 className="text-[17px] font-medium text-foreground mb-1 line-clamp-1">{product.name}</h3>
+        <p className="text-[14px] text-muted-foreground line-clamp-2 mb-4 flex-1 leading-relaxed font-light">
           {product.description}
         </p>
         
         <div className="flex items-center justify-between mt-auto">
-          <span className="text-lg font-extrabold text-foreground">₹{product.price.toFixed(2)}</span>
+          <span className="text-lg font-semibold text-foreground">₹{product.price.toFixed(2)}</span>
           <button
             onClick={handleAddToCart}
-            className="flex items-center justify-center p-2.5 bg-foreground text-background rounded-full hover:bg-primary hover:text-primary-foreground transition-colors shadow-sm"
+            className="flex items-center justify-center gap-1.5 px-4 py-2 bg-transparent text-foreground border border-border rounded-full hover:border-foreground hover:bg-foreground hover:text-background transition-all text-sm font-medium"
             aria-label="Add to cart"
           >
-            <ShoppingCart className="w-4 h-4" />
+            Add to cart <span className="transition-transform group-hover:translate-x-1">→</span>
           </button>
         </div>
       </div>

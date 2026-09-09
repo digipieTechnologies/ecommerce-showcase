@@ -7,47 +7,60 @@ export default function Home() {
   const featuredProducts = products.slice(0, 4);
 
   return (
-    <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="bg-[#fafafa] py-20 sm:py-32 relative overflow-hidden">
-        {/* Soft elegant gradient background */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#fff0f0] via-[#fafafa] to-[#fafafa] opacity-60" />
-        
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-medium tracking-wide uppercase mb-8">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Discover Creative Gifts</span>
-          </div>
-          
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold text-foreground tracking-tight mb-6 leading-[1.1]">
-            Curated <span className="text-primary italic font-serif">Jay art work</span> <br className="hidden sm:block" /> for everyone.
-          </h1>
-          
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-            Brighten up your day with our modern, minimal, and premium collection of t-shirts, mugs, and creative accessories.
+    <div className="flex flex-col bg-background">
+      {/* Ultra-Clean Hero Section */}
+      <section className="pt-20 pb-16 sm:pt-32 sm:pb-24 px-4 text-center">
+        <div className="max-w-4xl mx-auto flex flex-col items-center">
+          <p className="text-primary font-semibold tracking-widest uppercase text-xs mb-6">
+            Curated • Creative • Original
           </p>
           
-          <div className="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif font-medium text-foreground tracking-tight mb-8 leading-[1.1]">
+            Artful pieces made for everyday life.
+          </h1>
+          
+          <p className="text-lg sm:text-xl text-muted-foreground font-light max-w-2xl mb-12 leading-relaxed">
+            Discover thoughtfully curated artwork, objects, and creative gifts designed to bring more character to everyday spaces.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
             <Link
               href="/products"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-foreground text-background font-medium rounded-full hover:bg-foreground/90 transition-all duration-300 w-full sm:w-auto text-sm tracking-wide"
+              className="px-8 py-4 bg-foreground text-background font-medium rounded-full hover:bg-primary hover:text-white transition-all duration-300 w-full sm:w-auto shadow-md hover:shadow-xl hover:-translate-y-0.5"
             >
-              Shop Collection <ArrowRight className="w-4 h-4" />
+              Explore Collection
+            </Link>
+            <Link
+              href="/products"
+              className="px-8 py-4 bg-transparent text-foreground border border-border font-medium rounded-full hover:border-foreground transition-all duration-300 w-full sm:w-auto"
+            >
+              View New Arrivals
             </Link>
           </div>
         </div>
+        
+        {/* Panoramic Featured Image */}
+        <div className="max-w-[1280px] mx-auto mt-20 relative aspect-[16/9] sm:aspect-[21/9] overflow-hidden rounded-3xl shadow-xl">
+          <img 
+            src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80" 
+            alt="Featured Artwork" 
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2000ms] ease-out"
+          />
+        </div>
       </section>
 
-      {/* Featured Categories */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Shop by Category</h2>
+      {/* Clean Categories */}
+      <section className="py-20 sm:py-32 bg-muted/50 border-y border-border">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-serif font-medium text-foreground mb-4">Explore by Category</h2>
+          <p className="text-muted-foreground mb-12 font-light">Find exactly what you're looking for.</p>
+          
           <div className="flex flex-wrap justify-center gap-4">
             {CATEGORIES.slice(1).map((category) => (
               <Link
                 key={category}
                 href={`/products?category=${encodeURIComponent(category)}`}
-                className="px-6 py-3 rounded-full border border-border text-foreground hover:border-primary hover:text-primary transition-colors font-medium bg-background"
+                className="px-8 py-4 rounded-full border border-border text-foreground hover:border-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-medium bg-background shadow-sm text-sm tracking-wide uppercase"
               >
                 {category}
               </Link>
@@ -57,25 +70,19 @@ export default function Home() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-end mb-10">
+      <section className="py-24 sm:py-32 bg-background">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-16 gap-6 text-center sm:text-left">
             <div>
-              <h2 className="text-3xl font-bold text-foreground mb-2">Featured Products</h2>
-              <p className="text-muted-foreground">Our most popular creative pieces.</p>
+              <h2 className="text-3xl sm:text-4xl font-serif font-medium text-foreground mb-4">Featured Collection</h2>
+              <p className="text-muted-foreground font-light">Our most sought-after pieces.</p>
             </div>
-            <Link href="/products" className="hidden sm:inline-flex items-center gap-1 text-primary font-medium hover:underline">
-              View all <ArrowRight className="w-4 h-4" />
+            <Link href="/products" className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors text-sm uppercase tracking-wider pb-1 border-b border-foreground hover:border-primary">
+              View Entire Collection <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
           
           <ProductGrid products={featuredProducts} />
-          
-          <div className="mt-10 text-center sm:hidden">
-            <Link href="/products" className="inline-flex items-center gap-1 text-primary font-medium hover:underline">
-              View all products <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </div>
       </section>
     </div>
