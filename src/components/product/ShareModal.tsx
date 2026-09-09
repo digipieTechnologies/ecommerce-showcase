@@ -72,8 +72,8 @@ export function ShareModal({ product, isOpen, onClose }: ShareModalProps) {
   const shareOptions = [
     {
       name: "WhatsApp",
-      icon: MessageCircle,
-      color: "bg-green-500",
+      icon: ({ className }: { className?: string }) => <img src="/whatsapp.png" alt="WhatsApp" className="w-full h-full object-cover rounded-full" />,
+      color: "bg-transparent",
       action: () => window.open(`https://wa.me/?text=${encodeURIComponent(shareMessage)}`, "_blank"),
     },
     {
